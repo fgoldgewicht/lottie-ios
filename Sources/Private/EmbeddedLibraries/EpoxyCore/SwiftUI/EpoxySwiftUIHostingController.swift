@@ -28,7 +28,10 @@ open class EpoxySwiftUIHostingController<Content: View>: UIHostingController<Con
     // `safeAreaInsets` property and returning `.zero`. An implementation of that logic is
     // available in this file in the `2d28b3181cca50b89618b54836f7a9b6e36ea78e` commit if this API
     // no longer functions in future SwiftUI versions.
+    #if os(xrOS)
+    #else
     _disableSafeArea = ignoreSafeArea
+    #endif
   }
 
   // MARK: Open

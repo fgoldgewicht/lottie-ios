@@ -6,7 +6,7 @@
 //
 
 import Foundation
-#if os(iOS) || os(tvOS) || os(watchOS) || targetEnvironment(macCatalyst)
+#if os(iOS) || os(tvOS) || os(watchOS) || os(xrOS) || targetEnvironment(macCatalyst)
 import UIKit
 #elseif os(macOS)
 import AppKit
@@ -52,7 +52,7 @@ class DotLottieImageProvider: AnimationImageProvider {
 
   private func loadImages() {
     for url in filepath.urls {
-      #if os(iOS) || os(tvOS) || os(watchOS) || targetEnvironment(macCatalyst)
+      #if os(iOS) || os(tvOS) || os(watchOS) || os(xrOS) || targetEnvironment(macCatalyst)
       if
         let data = try? Data(contentsOf: url),
         let image = UIImage(data: data)?.cgImage

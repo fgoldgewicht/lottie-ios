@@ -3,7 +3,7 @@
 
 import SwiftUI
 
-#if os(iOS) || os(tvOS)
+#if os(iOS) || os(tvOS) || os(xrOS)
 import UIKit
 
 /// The platform's main view type.

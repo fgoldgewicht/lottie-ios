@@ -4,6 +4,16 @@
 import Combine
 import SwiftUI
 
+#if os(xrOS)
+extension View {
+  @ViewBuilder
+  func valueChanged<T: Equatable>(value: T, onChange: @escaping (T) -> Void) -> some View {
+    onReceive(Just(value)) { value in
+      onChange(value)
+    }
+  }
+}
+#else
 @available(iOS 13.0, tvOS 13.0, macOS 10.15, *)
 extension View {
   /// A backwards compatible wrapper for iOS 14 `onChange`
@@ -18,3 +28,4 @@ extension View {
     }
   }
 }
+#endif
